@@ -1,19 +1,54 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default React.createClass({
-  render() {
+class Calculator extends Component {
+  constructor(props){
+    super(props)
+
+
+    this.state = {
+      total: 0
+    }
+  }
+
+  add(){
+    var total = (parseInt(this.refs.firstNumber.value) || 0) + (parseInt(this.refs.secondNumber.value) || 0) ;
+    console.log(total);
+    this.setState({
+      total: total
+
+    })
+  }
+
+  render(){
     return (
       <div className="container">
         <h1>Add with React!</h1>
 
         <div className="add">
-          <input type="text" />
+          <input onKeyUp={this.add.bind(this)} type="text" ref="firstNumber" placeholder="Enter Number" />
             <span>+</span>
-          <input type="text" />
+          <input onKeyUp={this.add.bind(this)} type="text" ref="secondNumber" placeholder="Enter Number"/>
             <span>=</span>
-        <h3>Addition results go here!</h3>
+        <h3>{this.state.total}</h3>
         </div>
       </div>
     )
   }
-})
+}
+
+export default Calculator;
+
+  //
+  // this.state = {
+  //   total: null
+  // }
+
+  // add(e){
+  //   e.preventDefault ()
+  //   var first = (this.refs.firstNumber.value)
+  //   var second = (this.refs.secondNumber.value)
+  //   var total = first + second ;
+  //   this.setState({
+  //     total: total
+  //   })
+  // }
