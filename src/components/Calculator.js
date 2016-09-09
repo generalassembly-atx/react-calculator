@@ -39,4 +39,3 @@ import React, { Component } from "react";
   }
 }
 export default Calculator;
-import Calculator from '../src/components/Calculator';
