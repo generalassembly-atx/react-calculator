@@ -36,7 +36,7 @@ import React, { Component } from 'react';
         <h1>Add with React!</h1>
 
         <form onSubmit={this.handleSubmit}>
-          <input type="text" ref="inputFirst" placeholder="Input 1"/>
+          <input type="number" step="any" ref="inputFirst" placeholder="Input 1"/>
           <span>+</span>
           <input type="text" ref="inputSecond" placeholder="Input 2"/>
           <span>=</span>
