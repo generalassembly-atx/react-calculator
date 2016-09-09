@@ -7,7 +7,7 @@ import React, { Component } from 'react';
     this.handleSubmit=this.handleSubmit.bind(this)
     this.reset=this.reset.bind(this)
     this.state = {
-      input: null
+      sum: null
     }
   }
 
@@ -40,7 +40,7 @@ import React, { Component } from 'react';
           <span>+</span>
           <input type="text" ref="inputSecond" placeholder="Input 2"/>
           <span>=</span>
-          <h3>Addition results go here!</h3>
+          <h3>{this.state.sum}</h3>
           <input type="submit" value="Calculate!" />
           <button onClick={this.reset}>Reset</button>
         </form>
