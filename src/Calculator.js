@@ -13,13 +13,13 @@ class Calculator extends Component {
 
   handleNum1(e){
     this.setState ({
-      num1: parseInt(e.target.value)
+      num1: parseInt(e.target.value, 0)
     })
   }
 
   handleNum2(e){
     this.setState ({
-      num2: parseInt(e.target.value)
+      num2: parseInt(e.target.value, 0)
     })
   }
 
