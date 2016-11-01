@@ -12,29 +12,29 @@ class Calculator extends Component {
             quotient: 0
         }
     }
-    
+
     add() {
-        var add1 = this.refs.add1.value
-        var add2 = this.refs.add2.value
-        this.setState({sum :+ add1 + + add2});
+        let val1 = this.refs.add1.value
+        let val2 = this.refs.add2.value
+        this.setState({sum: +val1 + +val2});
     }
 
     subtract() {
-        var subtract1 = this.refs.subtract1.value
-        var subtract2 = this.refs.subtract2.value
-        this.setState({difference: + subtract1 - + subtract2})
+        let val1 = this.refs.subtract1.value
+        let val2 = this.refs.subtract2.value
+        this.setState({difference: val1 - val2})
     }
 
     multiply() {
-        var multiply1 = this.refs.multiply1.value
-        var multiply2 = this.refs.multiply2.value
-        this.setState({product: + multiply1 * + multiply2})
+        let val1 = this.refs.multiply1.value
+        let val2 = this.refs.multiply2.value
+        this.setState({product: val1 * val2})
     }
 
     divide() {
-        var divide1 = this.refs.divide1.value
-        var divide2 = this.refs.divide2.value
-        var quotient = +divide1 / + divide2;
+        let val1 = this.refs.divide1.value
+        let val2 = this.refs.divide2.value
+        let quotient = val1 / val2;
         this.setState({quotient: quotient})
     }
 
