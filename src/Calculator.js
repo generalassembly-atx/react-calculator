@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+
 
 
 class Calculator extends Component {
@@ -13,8 +17,8 @@ class Calculator extends Component {
     }
 
   handleChange(event){
-    let val1 = parseInt(document.getElementById('fnum').value);
-    let val2 = parseInt(document.getElementById('snum').value);
+    let val1 = parseInt(document.getElementById('fnum').value || 0, 10);
+    let val2 = parseInt(document.getElementById('snum').value || 0, 10);
     let addSum = val1+ val2;
     this.setState({
       num1: val1,
@@ -27,8 +31,10 @@ class Calculator extends Component {
   render() {
     return (
       <div className="container">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
         <h1>Add with React!</h1>
-
         <div className="add">
           <input id="fnum" type="text" onChange={this.handleChange.bind(this)}  />
             <span>+</span>
