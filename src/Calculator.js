@@ -1,66 +1,49 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 class Calculator extends Component {
   constructor(props) {
-    //accessing the parent through 'super'
     super(props);
-//only time we set this.state directly
+
     this.state = {
-      input1 = '',
-      input2 = '',
-      sum = ''
-
-      this.handleinput1 = this.handleinput1.bind(this);
-      this.handleinput2 = this.handleinput2.bind(this);
-      this.handlesum = this.handlesum.bind(this);
-
+      num1:0,
+      num2:0,
+      sum: 0
     }
-      handleinput1(x) {
-        let input1 = this.setState({input1: x.target.value});
+  }
 
-      }
-      handleinput2 (x){
-        let input2 = this.setState({input2: x.target.value})
-      }
-      handlesum (x){
-        let compute = parseInt(this.state.input1) + parseInt(this.state.input2)
-
-        //setState lets react know that this.state has changed
-        //without it, react will think that nothing has changed
-
-        this.setState({
-          sum: compute
-        })
-
-      };
-
+  handleChange(event){
+    let val1 = parseInt(document.getElementById('fnum').value || 0, 10);
+    let val2 = parseInt(document.getElementById('snum').value || 0, 10);
+    let addSum = val1 + val2;
+    this.setState({
+      num1: val1,
+      num2: val2,
+      sum: addSum
+    });
+  };
 
 
   render() {
     return (
-
-              <div className="container">
-                <h1>Add with React!</h1>
-                <div className="add">
-                  <input type="text" value={ this.state.input1 }/>
-                  <span>+</span>
-                  <input type="text" value={ this.state.input2 }/>
-                  <span>=</span>
-                  <h3>Results</h3>
-                  <span>{ this.state.sum }</span>
-                </div>
-                <button onClick={ this.handleClick.bind(this) }>Compute</button>
-              </div>
-
-    );
-  }
+      <div className="container">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
+        <h1>Add with React!</h1>
+        <div className="add">
+          <input id="fnum" type="text" onChange={this.handleChange.bind(this)}  />
+            <span>+</span>
+          <input id="snum" type="text" onChange={this.handleChange.bind(this)} />
+            <span>=</span>
+              <h3>{ this.state.sum }</h3>
+        </div>
+      </div>
+    )
+  };
 }
-
-
-
-export default App;
+export default Calculator;
 
 // Set up the initial state of your component. What state will you need to track? What values should those state items start with? Where is that state printed to the browser?
 //
